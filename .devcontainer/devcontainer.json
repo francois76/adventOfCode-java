@@ -1,0 +1,16 @@
+{
+    "name": "Advent of Code Java",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "redhat.java",
+                "vscjava.vscode-java-pack"
+            ]
+        }
+    },
+    "forwardPorts": [],
+    "postCreateCommand": "java --version"
+}
