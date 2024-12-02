@@ -7,8 +7,15 @@
         "vscode": {
             "extensions": [
                 "redhat.java",
-                "vscjava.vscode-java-pack"
+                "VisualStudioExptTeam.vscodeintellicode",
+                "VisualStudioExptTeam.intellicode-api-usage-examples",
+                "MS-vsliveshare.vsliveshare"
             ]
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/sshd:1": {
+            "version": "latest"
         }
     },
     "forwardPorts": [],
