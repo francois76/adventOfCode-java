@@ -17,7 +17,7 @@ public abstract class Day {
             System.err.println("failed to read input file");
             return;
         }
-        System.out.println("Part 1: " + part1());
-        System.out.println("Part 2: " + part2());
+        System.out.println("Part 1: le résultat est : " + part1());
+        System.out.println("Part 2: le résultat est : " + part2());
     }
 }
