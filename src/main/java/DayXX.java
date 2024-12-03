@@ -1,8 +1,8 @@
 
 public class DayXX extends Day {
 
-    public void main() {
-        run("dayXX.txt");
+    public static void main(String[] args) {
+        new DayXX().run("day01.txt");
     }
 
     @Override
