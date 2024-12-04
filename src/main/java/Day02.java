@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Day02 extends Day {
@@ -26,6 +25,7 @@ public class Day02 extends Day {
 
     @Override
     public String part2() {
+
         return this.input.stream().map((n) -> {
             System.out.println(n);
             var rs = Arrays.stream(n.split(" ")).map(Integer::parseInt).toList();
@@ -33,6 +33,7 @@ public class Day02 extends Day {
             Function<Function<Integer,Boolean>,Integer> f = (condition)->{
                 var hasError = false;
                 for (int i = 0; i < rs.size() - 1; i++) {
+                    System.out.println("I : " + i);
                     var delta =  rs.get(i) - rs.get(i + 1);
                     System.out.println("delta : " + delta);
                     if(condition.apply(delta)) {
@@ -47,16 +48,29 @@ public class Day02 extends Day {
                         System.out.println("=>1 Avec dernier element en erreur");
                         return 1;
                     }
+                    if (i == 0) {
+                        var delta2 =  rs.get(i+1) - rs.get(i + 2);
+                        System.out.println("delta2 sur premier elem : " + delta2);
+                        if(condition.apply(delta2)) {
+                            i++;
+                            continue;
+                        }
+                    }
                     var delta2 =  rs.get(i) - rs.get(i + 2);
                     System.out.println("delta2 : " + delta2);
                     if(condition.apply(delta2)) {
                         i++;
-                    } else {
+                        continue;
+                    }
+                    else {
                         System.out.println("=>0 Double error");
                         return 0;
                     }
                 }
-                System.out.println("=>1");
+                if (hasError) {
+                    System.out.println("Avec 1 erreur : " + n);
+                }
+//                System.out.println("=>1");
                 return 1;
             };
 
@@ -70,9 +84,10 @@ public class Day02 extends Day {
                 return 1;
             };
 
-            // Cas 10 3 6 7 9 (premier input faux) non gérer
-
             return 0;
         }).reduce(0, Integer::sum).toString();
+
+        // 550 trop petit
+        // 571 trop grand
     }
 }
